@@ -28,7 +28,7 @@ Beautiful Soup，不过个人比较喜欢正则匹配的方式。首先你需要
 <br/>
 >>&ensp;&ensp;&ensp;&ensp; right = urllib.request.urlopen(request).read().decode("utf-8")
 <br/>
->>&ensp;&ensp;&ensp;&ensp; path = re.compile(r&ldquo;&lt;img&sdot;+&oplus;src=&lsquo;(http&lt;+&oplus;)&rsquo;&rdquo;)
+>>&ensp;&ensp;&ensp;&ensp; path = re.compile(r&ldquo;&lt;img.+?;src=&lsquo;(http.+?)&rsquo;&rdquo;)
 <br/>
 >>&ensp;&ensp;&ensp;&ensp; lists = re.findall(path,right)
 <br/>
