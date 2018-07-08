@@ -14,33 +14,33 @@ Beautiful Soup，不过个人比较喜欢正则匹配的方式。首先你需要
 <br/>
 个人编写的取自定义网页图片的代码（含头文件，避免反爬虫）：
 <br/>
->import urllib.request
+>>import urllib.request
 <br/>
->import re
+>>import re
 <br/>
->def getresoure(html):
+>>def getresoure(html):
 <br/>
->    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like 'Gecko) Chrome/65.0.3325.181 Safari/53
+>>    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like 'Gecko) Chrome/65.0.3325.181 Safari/53
 7.36'}
 <br/>
->    request = urllib.request.Request(html,headers = headers)
+>>    request = urllib.request.Request(html,headers = headers)
 <br/>
->    right = urllib.request.urlopen(request).read().decode("utf-8")
+>>    right = urllib.request.urlopen(request).read().decode("utf-8")
 <br/>
->    path = re.compile(r'<img.+?src="(http.+?)"')
+>>    path = re.compile(r'<img.+?src="(http.+?)"')
 <br/>
->    lists = re.findall(path,right)
+>>    lists = re.findall(path,right)
 <br/>
->    count = 1
+>>    count = 1
 <br/>
->    for list in lists:
+>>    for list in lists:
 <br/>
->        urllib.request.urlretrieve(list,str(count) + '.jpg')
+>>        urllib.request.urlretrieve(list,str(count) + '.jpg')
 <br/>
->        count += 1
+>>        count += 1
 <br/>
->if \_\_name__ == '\_\_main__':
+>>if __name__ == '__main__':
 <br/>
->    print("输入要爬取的网址(空格回车)：",end='')
+>>    print("输入要爬取的网址(空格回车)：",end='')
 <br/>
->    getresoure(input())
+>>    getresoure(input())
