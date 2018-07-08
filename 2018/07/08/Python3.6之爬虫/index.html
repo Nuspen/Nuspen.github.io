@@ -1,0 +1,46 @@
+---
+title: Python 3.6之爬虫
+---
+
+<br/>在大2学习C语言时，我就试图用它从网页上获取一些东西：图片或文字，但失败了；后来选修了网页的课，了解了相关知识，也重复尝试过，得到却经常是乱码。
+当时没有深究其原因，但，现在想想，哈哈哈，我以前也算加入过爬虫队列呢。
+<br/>
+python，以前接触它的时候没觉得怎么好，不像C那样能深入到每一个参数对象，不如matlab那样强大的处理表格能力。但它就火了……会下围棋就是好啊！
+<br/>
+它和别的编程软件一个脾气，用我就要了解我的规则，并且是你写我做。这种方式是这类软件的'通病'嘛！，若想要做爬虫，python有好几种方法，最著名的是
+Beautiful Soup，不过个人比较喜欢正则匹配的方式。首先你需要先给它目标网页的地址和必须指令: urllib.request.urlopen(**html**).read().decode('utf-8')，
+来获取源码A；然后由你亲自动手，从网页上分析出目标存在的代码表达方式，得出B=re.compile('分析结果')；之后匹配这两部分re.findall(B, A)，结果即是目标存
+在的网址USL，再下载过来就行了urllib.request.urlretrieve(USL[i], 格式)。这个过程中考虑的有网页的反爬虫，安全性等问题，可以学习了解，增加知识。
+<br/>
+个人编写的取自定义网页图片的代码（含头文件，避免反爬虫）：
+<br/>
+>import urllib.request
+<br/>
+>import re
+<br/>
+>def getresoure(html):
+<br/>
+>    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like 'Gecko) Chrome/65.0.3325.181 Safari/53
+7.36'}
+<br/>
+>    request = urllib.request.Request(html,headers = headers)
+<br/>
+>    right = urllib.request.urlopen(request).read().decode("utf-8")
+<br/>
+>    path = re.compile(r'<img.+?src="(http.+?)"')
+<br/>
+>    lists = re.findall(path,right)
+<br/>
+>    count = 1
+<br/>
+>    for list in lists:
+<br/>
+>        urllib.request.urlretrieve(list,str(count) + '.jpg')
+<br/>
+>        count += 1
+<br/>
+>if \_\_name__ == '\_\_main__':
+<br/>
+>    print("输入要爬取的网址(空格回车)：",end='')
+<br/>
+>    getresoure(input())
