@@ -20,27 +20,26 @@ Beautiful Soup，不过个人比较喜欢正则匹配的方式。首先你需要
 <br/>
 >>def getresoure(html):
 <br/>
->>&_npbs;&_npbs; &_npbs; &_npbs;headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like 'Gecko) Chrome/65.0.3325.181 Safari/53
-7.36'}
+>>&ensp;&ensp;&ensp;&ensp;headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like 'Gecko) Chrome/65.0.3325.181 Safari/537.36'}
 <br/>
->>&_npbs; &_npbs; &_npbs; &_npbs; request = urllib.request.Request(html,headers = headers)
+>>&ensp;&ensp;&ensp;&ensp; request = urllib.request.Request(html,headers = headers)
 <br/>
->>&_npbs; &_npbs; &_npbs; &_npbs; right = urllib.request.urlopen(request).read().decode("utf-8")
+>>&ensp;&ensp;&ensp;&ensp; right = urllib.request.urlopen(request).read().decode("utf-8")
 <br/>
->>&_npbs; &_npbs; &_npbs; &_npbs; path = re.compile(r'<img.+?src="(http.+?)"')
+>>&ensp;&ensp;&ensp;&ensp; path = re.compile(r'<img.+?src="(http.+?)"')
 <br/>
->>&_npbs; &_npbs; &_npbs; &_npbs; lists = re.findall(path,right)
+>>&ensp;&ensp;&ensp;&ensp; lists = re.findall(path,right)
 <br/>
->>&_npbs; &_npbs; &_npbs; &_npbs; count = 1
+>>&ensp;&ensp;&ensp;&ensp; count = 1
 <br/>
->>&_npbs; &_npbs; &_npbs; &_npbs; for list in lists:
+>>&ensp;&ensp;&ensp;&ensp; for list in lists:
 <br/>
->>&_npbs; &_npbs; &_npbs; &_npbs; &_npbs; &_npbs; &_npbs; &_npbs; urllib.request.urlretrieve(list,str(count) + '.jpg')
+>>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; urllib.request.urlretrieve(list,str(count) + '.jpg')
 <br/>
->>&_npbs; &_npbs; &_npbs; &_npbs; &_npbs; &_npbs; &_npbs; &_npbs; count += 1
+>>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; count += 1
 <br/>
 >>if __name__ == '__main__':
 <br/>
->>&_npbs; &_npbs; &_npbs; &_npbs; print("输入要爬取的网址(空格回车)：",end='')
+>>&ensp;&ensp;&ensp;&ensp; print("输入要爬取的网址(空格回车)：",end='')
 <br/>
->>&_npbs; &_npbs; &_npbs; &_npbs; getresoure(input())
+>>&ensp;&ensp;&ensp;&ensp; getresoure(input())
