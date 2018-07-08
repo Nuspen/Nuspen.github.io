@@ -20,27 +20,27 @@ Beautiful Soup，不过个人比较喜欢正则匹配的方式。首先你需要
 <br/>
 >>def getresoure(html):
 <br/>
->>    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like 'Gecko) Chrome/65.0.3325.181 Safari/53
+>>&_npbs;&_npbs; &_npbs; &_npbs;headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like 'Gecko) Chrome/65.0.3325.181 Safari/53
 7.36'}
 <br/>
->>    request = urllib.request.Request(html,headers = headers)
+>>&_npbs; &_npbs; &_npbs; &_npbs; request = urllib.request.Request(html,headers = headers)
 <br/>
->>    right = urllib.request.urlopen(request).read().decode("utf-8")
+>>&_npbs; &_npbs; &_npbs; &_npbs; right = urllib.request.urlopen(request).read().decode("utf-8")
 <br/>
->>    path = re.compile(r'<img.+?src="(http.+?)"')
+>>&_npbs; &_npbs; &_npbs; &_npbs; path = re.compile(r'<img.+?src="(http.+?)"')
 <br/>
->>    lists = re.findall(path,right)
+>>&_npbs; &_npbs; &_npbs; &_npbs; lists = re.findall(path,right)
 <br/>
->>    count = 1
+>>&_npbs; &_npbs; &_npbs; &_npbs; count = 1
 <br/>
->>    for list in lists:
+>>&_npbs; &_npbs; &_npbs; &_npbs; for list in lists:
 <br/>
->>        urllib.request.urlretrieve(list,str(count) + '.jpg')
+>>&_npbs; &_npbs; &_npbs; &_npbs; &_npbs; &_npbs; &_npbs; &_npbs; urllib.request.urlretrieve(list,str(count) + '.jpg')
 <br/>
->>        count += 1
+>>&_npbs; &_npbs; &_npbs; &_npbs; &_npbs; &_npbs; &_npbs; &_npbs; count += 1
 <br/>
 >>if __name__ == '__main__':
 <br/>
->>    print("输入要爬取的网址(空格回车)：",end='')
+>>&_npbs; &_npbs; &_npbs; &_npbs; print("输入要爬取的网址(空格回车)：",end='')
 <br/>
->>    getresoure(input())
+>>&_npbs; &_npbs; &_npbs; &_npbs; getresoure(input())
